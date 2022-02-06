@@ -5,12 +5,11 @@ const API_KEY = 'c3a4cb8038ee207f234d0a08ae3fa54d';
 
 async function fetchMovies(url = '', config = {}) {
   const response = await axios.get(url, config);
-  console.log(response);
   return response.data;
 }
 
 export function fetchTrending() {
-  return fetchMovies(`${BASE_URL}/trending/movie/week?api_key=${API_KEY}`);
+  return fetchMovies(`${BASE_URL}/trending/movie/day?api_key=${API_KEY}`);
 }
 
 export function fetchByQuery(query) {
@@ -33,6 +32,6 @@ export function fetchActors(movieId) {
 
 export function fetchReviews(movieId) {
   return fetchMovies(
-    `${BASE_URL}/movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US&page=1`
+    `${BASE_URL}/movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US&`
   );
 }
