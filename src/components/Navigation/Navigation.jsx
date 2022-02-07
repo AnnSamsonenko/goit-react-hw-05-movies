@@ -1,16 +1,16 @@
-import { NavLink } from 'react-router-dom';
+import { NavList, NavItem, RouteLink } from './Navigation.styled';
 
 export const Navigation = () => {
   return (
     <nav>
-      <ul>
-        <li>
-          <NavLink to="/">Home</NavLink>
-        </li>
-        <li>
-          <NavLink to="/movies">Movies</NavLink>
-        </li>
-      </ul>
+      <NavList>
+        <NavItem>
+          <RouteLink to="/">Home</RouteLink>
+        </NavItem>
+        <NavItem>
+          <RouteLink to="/movies">Movies</RouteLink>
+        </NavItem>
+      </NavList>
     </nav>
   );
 };

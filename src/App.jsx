@@ -3,17 +3,21 @@ import { Routes, Route } from 'react-router-dom';
 import { HomePage } from 'views/Homepage/Homepage';
 import { MovieDetails } from 'views/MovieDetails/MovieDetails';
 import { Cast } from 'views/Cast/Cast';
+import { Reviews } from 'views/Reviews/Reviews';
+import { MoviesSearch } from 'views/MoviesSearch/MoviesSearch';
+import { GlobalStyle } from 'constants/GlobalStyle';
 
 export const App = () => {
   return (
     <>
+      <GlobalStyle />
       <AppBar />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="movies" element={<h2>Search</h2>} />
-        <Route path="movies/:movieId" element={<MovieDetails />}>
+        <Route index path="/" element={<HomePage />} />
+        <Route path="movies" element={<MoviesSearch />} />
+        <Route path="/movies/:movieId" element={<MovieDetails />}>
           <Route path="cast" element={<Cast />} />
-          <Route path="reviews" element={<h2>Review info</h2>} />
+          <Route path="reviews" element={<Reviews />} />
         </Route>
       </Routes>
     </>

@@ -1,3 +1,5 @@
+import { Wrapper } from './Container.styled';
+
 export const Container = ({ children }) => {
-  return <div>{children}</div>;
+  return <Wrapper>{children}</Wrapper>;
 };

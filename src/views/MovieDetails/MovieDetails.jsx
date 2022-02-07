@@ -1,10 +1,11 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { fetchMovieById } from 'services/ApiMovies';
 import { MovieInfo } from 'components/MovieInfo/MovieInfo';
 
 export const MovieDetails = () => {
+  const location = useLocation();
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -46,12 +47,12 @@ export const MovieDetails = () => {
 
   return (
     <>
-      <Link to="/">Go back</Link>
+      <Link to={location?.state?.from ?? '/'}>Go back</Link>
       {loading && <h2>Loading...</h2>}
       {error && <h2>Something went wrong, please try again</h2>}
       {!error && !loading && movie && <MovieInfo movie={movie} />}
-      <Link to={`cast`}>Cast</Link>
-      <Link to={`reviews`}>Reviews</Link>
+      <Link to={'cast'}>Cast</Link>
+      <Link to={'reviews'}>Reviews</Link>
       <Outlet />
     </>
   );
