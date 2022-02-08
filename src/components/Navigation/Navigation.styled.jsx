@@ -13,8 +13,8 @@ export const NavItem = styled.li`
 `;
 export const RouteLink = styled(NavLink)`
   font-weight: 500;
-  font-size: 18px;
-  line-height: 21px;
+  font-size: 22px;
+  line-height: 24px;
   color: #363853;
   transition: color 250ms linear;
   &.active {

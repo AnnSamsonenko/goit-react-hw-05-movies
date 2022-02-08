@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchActors } from 'services/ApiMovies';
 import { CastInfo } from 'components/CastInfo/CastInfo';
+import { Loader } from 'components/Loader/Loader';
 
 export const Cast = () => {
   const { movieId } = useParams();
@@ -40,7 +41,7 @@ export const Cast = () => {
 
   return (
     <>
-      {loading && <h2>Loading...</h2>}
+      {loading && <Loader />}
       {error && <h2>Something went wrong, please try again</h2>}
       {!error && !loading && cast && <CastInfo cast={cast} />}
     </>

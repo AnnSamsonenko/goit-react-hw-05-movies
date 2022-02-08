@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { fetchTrending } from '../../services/ApiMovies';
+import { fetchTrending } from '../services/ApiMovies';
 import { MovieList } from 'components/MovieList/MovieList';
 import { SectionHeading } from 'components/SectionHeading/SectionHeading';
 import { Container } from 'components/Container/Container';
+import { Loader } from 'components/Loader/Loader';
 
 export const HomePage = () => {
   const [movies, setMovies] = useState(null);
@@ -33,7 +34,7 @@ export const HomePage = () => {
 
   return (
     <Container>
-      {loading && <h2>Loading...</h2>}
+      {loading && <Loader />}
       {movies && !loading && !error && (
         <>
           <SectionHeading text={'Trending today'} />

@@ -3,6 +3,8 @@ import { useSearchParams } from 'react-router-dom';
 import { Searchbar } from 'components/Searchbar/Searchbar';
 import { fetchByQuery } from 'services/ApiMovies';
 import { MovieList } from 'components/MovieList/MovieList';
+import { Container } from 'components/Container/Container';
+import { Loader } from 'components/Loader/Loader';
 
 export const MoviesSearch = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -42,15 +44,15 @@ export const MoviesSearch = () => {
   };
 
   return (
-    <div>
+    <Container>
       <Searchbar onSubmit={handleSubmit} />
 
-      {loading && <h2>Loading...</h2>}
+      {loading && <Loader />}
       {error && <h2>Something went wrong, please try again</h2>}
       {movies && !loading && !error && <MovieList movies={movies} />}
       {movies && !loading && !error && movies.length === 0 && (
         <h3>Nothing found with such query</h3>
       )}
-    </div>
+    </Container>
   );
 };

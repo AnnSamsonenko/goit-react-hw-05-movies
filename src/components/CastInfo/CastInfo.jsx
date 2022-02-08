@@ -1,15 +1,27 @@
+import { CastList, CastCard, CastImgWrapper, CastImg } from './CastInfo.styled';
+import propTypes from 'prop-types';
+
 export const CastInfo = ({ cast }) => {
   return (
-    <ul>
+    <CastList>
       {cast.map(({ profile_path, character, name, id }) => (
-        <li key={id}>
+        <CastCard key={id}>
+          <CastImgWrapper>
+            <CastImg src={profile_path} alt={name} />
+          </CastImgWrapper>
           <div>
-            <img src={profile_path} alt={name} />
+            <h4>{name}</h4>
+            <p>
+              Character:
+              <br /> {character}
+            </p>
           </div>
-          <h4>{name}</h4>
-          <p>Character: {character}</p>
-        </li>
+        </CastCard>
       ))}
-    </ul>
+    </CastList>
   );
+};
+
+CastInfo.propTypes = {
+  cast: propTypes.arrayOf(propTypes.object).isRequired,
 };

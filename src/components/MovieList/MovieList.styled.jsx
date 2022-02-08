@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 export const FilmsList = styled.ul`
   list-style-type: circle;
+  list-style-position: inside;
+  column-count: 2;
+  height: 400px;
 `;
 
 export const FilmsItem = styled.li`

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchReviews } from 'services/ApiMovies';
 import { ReviewsList } from 'components/ReviewsList/ReviewsList';
+import { Loader } from 'components/Loader/Loader';
 
 export const Reviews = () => {
   const { movieId } = useParams();
@@ -37,9 +38,11 @@ export const Reviews = () => {
 
   return (
     <>
-      {loading && <h2>Loading...</h2>}
+      {loading && <Loader />}
       {error && <h2>Something went wrong, please try again</h2>}
-      {!error && !loading && reviews && <ReviewsList reviews={reviews} />}
+      {!error && !loading && reviews && reviews.length > 0 && (
+        <ReviewsList reviews={reviews} />
+      )}
       {!error && !loading && reviews && reviews.length === 0 && (
         <h3>Sorry, no reviews for this movie</h3>
       )}

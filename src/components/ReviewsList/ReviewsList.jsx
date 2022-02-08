@@ -1,14 +1,26 @@
+import {
+  ReviewItem,
+  ReviewList,
+  ReviewTitle,
+  ReviewText,
+} from './ReviewList.styled';
+import propTypes from 'prop-types';
+
 export const ReviewsList = ({ reviews }) => {
   return (
-    <ul>
+    <ReviewList>
       {reviews.map(({ id, author, content }) => {
         return (
-          <li key={id}>
-            <h4>Author: {author}</h4>
-            <p>{content}</p>
-          </li>
+          <ReviewItem key={id}>
+            <ReviewTitle>Author: {author}</ReviewTitle>
+            <ReviewText>{content}</ReviewText>
+          </ReviewItem>
         );
       })}
-    </ul>
+    </ReviewList>
   );
+};
+
+ReviewsList.propTypes = {
+  reviews: propTypes.arrayOf(propTypes.object).isRequired,
 };
