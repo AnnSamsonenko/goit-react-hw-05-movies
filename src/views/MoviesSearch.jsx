@@ -19,7 +19,6 @@ export const MoviesSearch = () => {
         try {
           setLoading(true);
           setError('');
-          console.log(query);
           const { results } = await fetchByQuery(query);
           const updatedMovies = formatData(results);
           setMovies(updatedMovies);
