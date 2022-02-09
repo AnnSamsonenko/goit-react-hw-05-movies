@@ -63,10 +63,10 @@ export const MovieDetails = () => {
       {!error && !loading && movie && <MovieInfo movie={movie} />}
       <hr />
       <LinksWrapper>
-        <RouteLink state={{ from: location.state.from }} to={'cast'}>
+        <RouteLink state={{ from: location?.state?.from }} to={'cast'}>
           Cast
         </RouteLink>
-        <RouteLink state={{ from: location.state.from }} to={'reviews'}>
+        <RouteLink state={{ from: location?.state?.from }} to={'reviews'}>
           Reviews
         </RouteLink>
       </LinksWrapper>
